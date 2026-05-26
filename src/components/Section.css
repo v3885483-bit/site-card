@@ -1,0 +1,27 @@
+.section-container {
+  background-color: #504f2c; /* Цвет фона (тёмно‑жёлтый) */
+  display: flex;
+  justify-content: center; /* Горизонтальное выравнивание по центру */
+  align-items: center; /* Вертикальное выравнивание по центру */
+  padding: 2rem 1rem;
+  gap: 1.5rem; /* Отступ между логотипом и текстом */
+  flex-direction: column; /* Располагаем элементы вертикально: сначала логотип, потом текст */
+  text-align: center; /* Гарантируем выравнивание текста по центру внутри своих блоков */
+}
+
+.header-text {
+  color: rgb(0, 0, 0); /* Цвет текста */
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.4;
+  max-width: 600px; /* Ограничиваем ширину текста для лучшей читаемости на больших экранах */
+} 
+
+.section-logo {
+    justify-content: center;
+    max-width: 100%; /* Не выходим за границы контейнера */
+    height: auto; /* Сохраняем пропорции */
+    /* Можно добавить визуальные эффекты для логотипа */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

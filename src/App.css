@@ -1,38 +1,61 @@
-.App {
+.header {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Центральная колонка (контент) */
+.article {
+  background-color: var(--color-bg); /* Светло-серый фон для контента */
+  padding: 1rem;
+}
+
+/* Подвал */
+.footer {
+  background-color: var(--color-bg);
+  color: var(--color-text);
   text-align: center;
+  padding: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Акценты (ссылки, заголовки) */
+h1, h2, h3 {
+  color: var(--color-secondary); /* Серо-голубой для заголовков */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a, a:visited {
+  color: var(--color-primary); /* Синий для ссылок */
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a:hover {
+  text-decoration: underline;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.app-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column; /* Вертикальный стек */
+  min-height: 100vh; /* Минимум — высота экрана */
 }
 
-.App-link {
-  color: #61dafb;
+.main-grid {
+  flex-grow: 1; /* Растягиваем основной блок, чтобы он занимал всё пространство */
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr; /* Пропорции 1:4:1 */
+  gap: 20px; /* Отступы между колонками */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-border: #e0e0e0;
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
 }
