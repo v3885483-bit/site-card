@@ -4,7 +4,7 @@ import './Header.css'; // Импорт стилей
 function Header() {
   return (
     <div className="header-container">
-      <div className="header-text"><h2>Сайт-визитка компании "Инженерно-геодезические изыскания"</h2></div>
+      <div className="header-text"><h2>Engineering and Geodetic Surveys Company's website</h2></div>
     </div>
   );
 }

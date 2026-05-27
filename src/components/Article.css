@@ -1,0 +1,51 @@
+.article-container {
+  /* Устанавливаем фоновое изображение */
+  background-image: url('../images/Фон.jpeg'); 
+  
+  /* Важные свойства для фона: */
+  background-size: cover;    /* Растягивает картинку, обрезая лишнее (лучший вариант) */
+  /* или background-size: contain; */ /* Сохраняет пропорции, но могут быть пустые области */
+  
+  background-position: center; /* Центрируем картинку */
+  background-repeat: no-repeat; /* Запрещаем повторение */
+  
+  /* Если хотите добавить цвет фона (на случай, если картинка не загрузится) */
+  background-color: #ffffff; /* Светло-серый */
+  
+  /* Высота блока (иначе фон может не отобразиться, если контент маленький) */
+  min-height: 70%;
+}
+
+.article-text {
+    text-align: justify;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    white-space: pre-wrap;
+    font-size: 20px;
+    background-color: #ffffffa8;
+    overflow: auto;
+    line-height: 1.0;
+    margin: 0;
+}
+
+.article-table {
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+    list-style: none;
+}
+
+.article-table th,
+.article-table td {
+  border: 1px solid #686868; /* Толщина, тип и цвет границы */
+  padding: 8px; /* Отступы внутри ячеек */
+  text-align: center;
+}
+
+tr {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}

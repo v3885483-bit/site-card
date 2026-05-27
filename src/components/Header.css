@@ -3,11 +3,10 @@
   display: flex;
   justify-content: center; /* Горизонтальное выравнивание по центру */
   align-items: center; /* Вертикальное выравнивание по центру */
-  padding: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
-.header-text {
-  color: rgb(0, 0, 0); /* Цвет текста */
-  font-size: 1.5rem;
-  font-weight: bold;
+.header-text{
+align-items: center;
 }

@@ -1,3 +1,5 @@
+@import 'normalize.css';
+
 .header {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -20,8 +22,13 @@
 }
 
 /* Акценты (ссылки, заголовки) */
-h1, h2, h3 {
+h1, h2 {
   color: var(--color-secondary); /* Серо-голубой для заголовков */
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
 }
 
 a, a:visited {
@@ -48,9 +55,8 @@ html, body {
   flex-grow: 1; /* Растягиваем основной блок, чтобы он занимал всё пространство */
   display: grid;
   grid-template-columns: 1fr 4fr 1fr; /* Пропорции 1:4:1 */
-  gap: 20px; /* Отступы между колонками */
+  /*gap: 20px; Отступы между колонками */
 }
-
 
 :root {
   --color-bg: #ffffff;
