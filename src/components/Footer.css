@@ -1,0 +1,41 @@
+.footer {
+  background-color: #1eb51c; /* Явный цвет фона */
+  text-align: center; /* Центрирование текста */
+  width: 100%; /* Занимает всю ширину родителя */
+  box-sizing: border-box; /* Учитывает padding в общей ширине */
+  position: relative; /* Для корректного позиционирования */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto; /* Центрирует контейнер */
+  padding: 0 20px; /* Отступы по бокам */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирует дочерние элементы по горизонтали */
+  min-height: auto; /* Автоматически подстраивается под контент */
+  box-sizing: border-box;
+}
+
+.footer-contacts {
+  display: flex;
+  gap: 30px; /* Отступ между контактами */
+  flex-wrap: wrap; /* Перенос на новую строку при нехватке места */
+  justify-content: center; /* Центрирование ссылок */
+}
+
+.footer-contacts a {
+  text-decoration: none;
+  font-size: clamp(14px, 2vw, 16px); /* Адаптивный размер шрифта */
+  white-space: nowrap; /* Запрещает перенос текста внутри ссылки */
+}
+
+.footer-contacts a:hover {
+  text-decoration: underline;
+  opacity: 0.8; /* Лёгкое затемнение при наведении */
+}
+
+.footer-copyright {
+  font-size: 14px;
+  margin-bottom: 0; /* Убираем лишний отступ снизу */
+}

@@ -27,6 +27,7 @@ function Section() {
         >
           English
         </a>
+        <p><h3>Наши работы</h3></p>
       </div>
       {/* Галерея под логотипом и ссылкой */}
       <AutoScrollGallery

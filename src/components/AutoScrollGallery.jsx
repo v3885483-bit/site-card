@@ -2,24 +2,40 @@ import React, { useRef, useEffect } from 'react';
 
 function AutoScrollGallery({ images, scrollSpeed = 30 }) {
   const containerRef = useRef(null);
+  const isResettingRef = useRef(false); // Флаг сброса позиции
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Функция для прокрутки
     const scrollStep = () => {
-      if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
-        // Достигли конца — сбрасываем в начало
+      // Если идёт сброс, не выполняем прокрутку
+      if (isResettingRef.current) return;
+
+      const { scrollTop, clientHeight, scrollHeight } = container;
+      const scrollPosition = scrollTop + clientHeight;
+
+      // Проверяем, достигли ли конца (с запасом для надёжности)
+      if (scrollPosition >= scrollHeight - 5) {
+        // Начинаем сброс с плавным переходом
+        isResettingRef.current = true;
+        container.style.transition = 'scroll-top 0.5s ease-in-out';
         container.scrollTop = 0;
+
+        // Через 500 мс (время перехода) сбрасываем флаг и продолжаем прокрутку
+        setTimeout(() => {
+          isResettingRef.current = false;
+          container.style.transition = ''; // Убираем переход для дальнейшей прокрутки
+        }, 500);
       } else {
-        // Прокручиваем на шаг
-        container.scrollTop += 1;
+        // Прокручиваем на шаг (адаптируем шаг под скорость)
+        const step = (2 * scrollSpeed) / 30;
+        container.scrollTop += step;
       }
     };
 
     // Запускаем автоматическую прокрутку
-    const intervalId = setInterval(scrollStep, scrollSpeed);
+    const intervalId = setInterval(scrollStep, 30);
 
     // Очистка при размонтировании компонента
     return () => clearInterval(intervalId);
@@ -29,7 +45,9 @@ function AutoScrollGallery({ images, scrollSpeed = 30 }) {
     <div
       ref={containerRef}
       style={{
-        height: '300px',
+        height: '30vh',
+        maxHeight: '400px',     // максимальная высота
+        minHeight: '150px',   // минимальная высота
         overflow: 'hidden',
         scrollBehavior: 'smooth'
       }}
@@ -42,7 +60,8 @@ function AutoScrollGallery({ images, scrollSpeed = 30 }) {
             alt={`Image ${index}`}
             style={{
               width: '100%',
-              height: '200px',
+              height: 'auto',
+              maxHeight: 'calc(30vh - 10px)', // ограничение с учётом margin
               objectFit: 'cover',
               marginBottom: '10px'
             }}

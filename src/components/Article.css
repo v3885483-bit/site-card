@@ -1,51 +1,54 @@
 .article-container {
-  /* Устанавливаем фоновое изображение */
-  background-image: url('../images/Фон.jpeg'); 
-  
-  /* Важные свойства для фона: */
-  background-size: cover;    /* Растягивает картинку, обрезая лишнее (лучший вариант) */
-  /* или background-size: contain; */ /* Сохраняет пропорции, но могут быть пустые области */
-  
-  background-position: center; /* Центрируем картинку */
-  background-repeat: no-repeat; /* Запрещаем повторение */
-  
-  /* Если хотите добавить цвет фона (на случай, если картинка не загрузится) */
-  background-color: #ffffff; /* Светло-серый */
-  
-  /* Высота блока (иначе фон может не отобразиться, если контент маленький) */
-  min-height: 70%;
+/* Устанавливаем фоновое изображение */
+background-image: url('../images/Фон.jpeg');
+
+/* Важные свойства для фона: */
+background-size: cover; /* Растягивает картинку, обрезая лишнее (лучший вариант) */
+/* или background-size: contain; */ /* Сохраняет пропорции, но могут быть пустые области */
+
+background-position: center; /* Центрируем картинку */
+background-repeat: no-repeat; /* Запрещаем повторение */
+
+/* Если хотите добавить цвет фона (на случай, если картинка не загрузится) */
+background-color: #ffffff; /* Светло-серый */
+
+/* Высота блока (иначе фон может не отобразиться, если контент маленький) */
+min-height: 70vh;
+overflow-x: hidden;
 }
 
 .article-text {
-    text-align: justify;
-    word-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    white-space: pre-wrap;
-    font-size: 20px;
-    background-color: #ffffffa8;
-    overflow: auto;
-    line-height: 1.0;
-    margin: 0;
+text-align: justify;
+word-wrap: break-word;
+word-break: break-word;
+hyphens: auto;
+white-space: pre-wrap;
+font-size: clamp(14px, 2vw, 20px);
+background-color: #ffffffa8;
+overflow: auto;
+line-height: 1.0;
+margin: 0;
 }
 
 .article-table {
-    margin: 0 auto;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0;
-    list-style: none;
+margin: 0 auto;
+grid-template-columns: repeat(2, 1fr);
+padding: 0;
+list-style: none;
+display: table;
 }
 
 .article-table th,
 .article-table td {
-  border: 1px solid #686868; /* Толщина, тип и цвет границы */
-  padding: 8px; /* Отступы внутри ячеек */
-  text-align: center;
+border: 1px solid #686868; /* Толщина, тип и цвет границы */
+padding: 8px; /* Отступы внутри ячеек */
+text-align: center;
+font-size: clamp(14px, 2vw, 20px);
 }
 
 tr {
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    padding-inline-start: 40px;
-    unicode-bidi: isolate;
+margin-block-start: 1em;
+margin-block-end: 1em;
+padding-inline-start: 40px;
+unicode-bidi: isolate;
 }
