@@ -3,7 +3,6 @@ import logo from '../images/логотип_изысканий.png';
 import './Section.css';
 import AutoScrollGallery from './AutoScrollGallery';
 
-// Импортируем изображения
 import image1 from '../images/гидро.jpg';
 import image2 from '../images/метео.jpg';
 import image3 from '../images/теодолит.webp';
@@ -11,30 +10,13 @@ import image4 from '../images/погода.jpg';
 
 const images = [image1, image2, image3, image4];
 
-function Section() {
+function Section({ data }) {
   return (
-    <div className="section-container">
-      <img
-        className="section-logo"
-        src={logo}
-        alt="Логотип"
-      />
-      <div className="section-text">
-        <a
-          href="../pages_en/index_en.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          English
-        </a>
-        <p><h3>Наши работы</h3></p>
-      </div>
-      {/* Галерея под логотипом и ссылкой */}
-      <AutoScrollGallery
-        images={images}
-        scrollSpeed={30}
-      />
-    </div>
+    <section className="section-container">
+      <img className="section-logo" src={logo} alt="Логотип компании" />
+      <h3>{data.works}</h3>
+      <AutoScrollGallery images={images} scrollSpeed={18} />
+    </section>
   );
 }
 

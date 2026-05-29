@@ -1,69 +1,68 @@
 @import 'normalize.css';
 
-.header {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  padding: 1rem;
-  border-bottom: 1px solid var(--color-border);
+:root {
+  --color-bg: #f4f8fb;
+  --color-card: rgba(255, 255, 255, 0.88);
+  --color-text: #1f2933;
+  --color-muted: #52616b;
+  --color-primary: #0f5f8f;
+  --color-secondary: #12384f;
+  --color-border: rgba(15, 95, 143, 0.18);
+  --shadow: 0 14px 34px rgba(18, 56, 79, 0.16);
 }
 
-/* Центральная колонка (контент) */
-.article {
-  background-color: var(--color-bg); /* Светло-серый фон для контента */
-  padding: 1rem;
-}
+* { box-sizing: border-box; }
 
-/* Подвал */
-.footer {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Акценты (ссылки, заголовки) */
-h1, h2 {
-  color: var(--color-secondary);
-  text-align: center;
-  font-size: clamp(14px, 2vw, 20px);
-}
-
-h3 {
-  text-align: center;
-  font-size: clamp(14px, 2vw, 20px);
-}
-
-a, a:visited {
-  color: var(--color-primary); /* Синий для ссылок */
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-html, body {
-  margin: 0;
+html,
+body,
+#root {
+  width: 100%;
   height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .app-container {
-  display: flex;
-  flex-direction: column; /* Вертикальный стек */
-  min-height: 100vh; /* Минимум — высота экрана */
+  min-height: 100dvh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
 }
 
 .main-grid {
-  flex-grow: 1; /* Растягиваем основной блок, чтобы он занимал всё пространство */
+  min-height: 0;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr; /* Пропорции 1:4:1 */
-  /*gap: 20px; Отступы между колонками */
+  grid-template-columns: minmax(180px, 0.9fr) minmax(420px, 2.4fr) minmax(220px, 1fr);
+  gap: 12px;
+  padding: 12px;
 }
 
-:root {
-  --color-bg: #ffffff;
-  --color-text: #333333;
-  --color-border: #e0e0e0;
-  --color-primary: #007bff;
-  --color-secondary: #393939;
+h1, h2, h3, p { margin-top: 0; }
+
+h1, h2, h3 { color: var(--color-secondary); }
+
+a, a:visited {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+@media (max-width: 960px) {
+  .app-container {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
 }

@@ -1,46 +1,45 @@
 .aside-container {
-  background: #f8f9fa;
-  border-radius: 8px;
-}
-
-/* Центрирование контейнера по горизонтали и вертикали */
-.centered {
+  min-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-height: 100vh; /* Занимает всю высоту экрана */
+  gap: 12px;
+  box-shadow: var(--shadow);
+}
+
+.aside-container h3 {
+  margin: 0;
   text-align: center;
+  font-size: clamp(15px, 1.4vw, 20px);
 }
 
-.styled-aside-table {
-  width: 80%; /* Ширина таблицы — 80 % от контейнера */
-  max-width: 800px; /* Максимальная ширина таблицы */
-  border-collapse: collapse;
+.aside-list {
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  gap: 10px;
 }
 
-.styled-aside-table th {
-  background-color: #007bff;
-  color: white;
-  padding: 12px 15px;
-  text-align: center;
-  font-size: clamp(14px, 2vw, 20px);
-  font-weight: 600;
+.aside-card {
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: #f6fbfd;
 }
 
-.styled-aside-table td {
-  padding: 10px 15px;
-  border-bottom: 1px solid #dee2e6;
-  font-size: clamp(14px, 2vw, 20px);
+.aside-card strong {
+  color: var(--color-secondary);
+  font-size: 15px;
 }
 
-.section-link {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.section-link:hover {
-  color: #0056b3;
-  text-decoration: underline;
+.aside-card span {
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.3;
 }

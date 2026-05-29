@@ -1,18 +1,62 @@
 import React from 'react';
-import logo from '../images/Фон.jpeg';
-import './Article.css'; // Импорт стилей
+import './Article.css';
 
-function Article() {
-return (<div className="article-container">
-<div className="article-text">
-<h3>Гидрометеорологические изыскания и расчёты под проектирование и экспертизу</h3><p>Подготавливаем гидрометеорологические изыскания, гидрологические и климатические расчёты для строительства, проектирования, согласований и прохождения экспертизы.</p><p>Работаем с ИЖС, коммерческими, промышленными, линейными и площадными объектами. Подключаемся к срочным и сложным задачам: подтопление, водоохранные зоны, русловые процессы, замечания экспертизы.</p><p><h3>Как проходит работа</h3></p><p>1. Получаем адрес объекта, техническое задание, проектную документацию и требования экспертизы.</p><p>2. Оцениваем объём работ, сроки, состав документов и готовим коммерческое предложение.</p><p>3. Выполняем расчёты, обследования, анализ территории и подготовку отчётной документации.</p><p>4. При необходимости сопровождаем экспертизу, корректируем документы и закрываем замечания.</p><p><h3>От чего зависит цена</h3></p>
-<table className="article-table"><tbody><tr><td>Площадь и сложность объекта</td>
-<td>Наличие водных объектов</td></tr>
-<tr><td>Удалённость территории</td>
-<td>Необходимость полевых работ</td></tr>
-<tr><td>Срочность выполнения</td>
-<td>Требования экспертизы</td></tr></tbody></table>
-</div>
-</div>) ;
+function Article({ data, currentSection }) {
+  return (
+    <article className="article-container">
+      <div className="article-text">
+        {currentSection === 'news' ? (
+          <>
+            <h2>Новости</h2>
+            {data.news?.map((item, index) => (
+              <div key={index} className="news-item">
+                <h3>{item.title}</h3>
+                <span className="date">{item.date}</span>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </>
+        ) : currentSection === 'about' ? (
+          <>
+            <h2>{data.about.title}</h2>
+            <h3>{data.about.subtitle}</h3>
+            {data.about.content.map((text, index) => <p key={index}>{text}</p>)}
+          </>
+        ) : currentSection === 'feedback' ? (
+          <>
+            <h2>{data.feedback.title}</h2>
+            <h3>{data.feedback.subtitle}</h3>
+            <ul>
+              {data.feedback.contacts.map((contact, index) => <li key={index}>{contact}</li>)}
+            </ul>
+            <div>{data.feedback.form}</div>
+          </>
+        ) : currentSection === 'products' ? (
+          <>
+            <h2>{data.products.title}</h2>
+            <h3>{data.products.subtitle}</h3>
+            <ul>
+              {data.products.services.map((service, index) => <li key={index}>{service}</li>)}
+            </ul>
+          </>
+        ) : (
+          // Стандартный контент (главная страница)
+          <>
+            <h2>{data.subtitle}</h2>
+            {data.paragraphs.map((text) => <p key={text}>{text}</p>)}
+            <h3>{data.processTitle}</h3>
+            <ol>
+              {data.process.map((item) => <li key={item}>{item}</li>)}
+            </ol>
+            <h3>{data.priceTitle}</h3>
+            <div className="price-grid">
+              {data.price.map((item) => <span key={item}>{item}</span>)}
+            </div>
+          </>
+        )}
+      </div>
+    </article>
+  );
 }
-export default Article; // Обязательно!
+
+export default Article;

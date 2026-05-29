@@ -1,11 +1,17 @@
 import React from 'react';
-import './Header.css'; // Импорт стилей
+import './Header.css';
 
-function Header() {
+function Header({ data, onToggleLanguage }) {
   return (
-    <div className="header-container">
-      <div className="header-text"><h2>Сайт-визитка компании "Инженерно-геодезические изыскания"</h2></div>
-    </div>
+    <header className="header-container">
+      <div>
+        <h1>{data.title}</h1>
+        <p>{data.subtitle}</p>
+      </div>
+      <button className="language-button" onClick={onToggleLanguage} type="button">
+        {data.langLabel}
+      </button>
+    </header>
   );
 }
 

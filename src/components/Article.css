@@ -1,54 +1,56 @@
 .article-container {
-/* Устанавливаем фоновое изображение */
-background-image: url('../images/Фон.jpeg');
-
-/* Важные свойства для фона: */
-background-size: cover; /* Растягивает картинку, обрезая лишнее (лучший вариант) */
-/* или background-size: contain; */ /* Сохраняет пропорции, но могут быть пустые области */
-
-background-position: center; /* Центрируем картинку */
-background-repeat: no-repeat; /* Запрещаем повторение */
-
-/* Если хотите добавить цвет фона (на случай, если картинка не загрузится) */
-background-color: #ffffff; /* Светло-серый */
-
-/* Высота блока (иначе фон может не отобразиться, если контент маленький) */
-min-height: 70vh;
-overflow-x: hidden;
+  min-height: 0;
+  overflow: hidden;
+  background-image: linear-gradient(rgba(244, 248, 251, 0.2), rgba(244, 248, 251, 0.2)), url('../images/Фон.jpeg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
 }
 
 .article-text {
-text-align: justify;
-word-wrap: break-word;
-word-break: break-word;
-hyphens: auto;
-white-space: pre-wrap;
-font-size: clamp(14px, 2vw, 20px);
-background-color: #ffffffa8;
-overflow: auto;
-line-height: 1.0;
-margin: 0;
+  height: 100%;
+  overflow: auto;
+  background: var(--color-card);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  padding: clamp(16px, 2vw, 28px);
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.45;
 }
 
-.article-table {
-margin: 0 auto;
-grid-template-columns: repeat(2, 1fr);
-padding: 0;
-list-style: none;
-display: table;
+.article-text h2 {
+  margin-bottom: 14px;
+  font-size: clamp(20px, 2.1vw, 30px);
+  line-height: 1.15;
 }
 
-.article-table th,
-.article-table td {
-border: 1px solid #686868; /* Толщина, тип и цвет границы */
-padding: 8px; /* Отступы внутри ячеек */
-text-align: center;
-font-size: clamp(14px, 2vw, 20px);
+.article-text h3 {
+  margin: 18px 0 10px;
+  font-size: clamp(17px, 1.6vw, 23px);
 }
 
-tr {
-margin-block-start: 1em;
-margin-block-end: 1em;
-padding-inline-start: 40px;
-unicode-bidi: isolate;
+.article-text p { margin-bottom: 10px; }
+.article-text ol { margin: 0; padding-left: 22px; }
+.article-text li { margin-bottom: 7px; }
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.price-grid span {
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.74);
+  text-align: center;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .price-grid { grid-template-columns: 1fr; }
 }
